@@ -43,6 +43,7 @@ function createAirports(data) {
     } else {
       airPortProp = document.createElement("div");
     }
+
     $(airPortProp)
       .attr("id", val)
       .html(airport[val]);
