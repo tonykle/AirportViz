@@ -21,7 +21,7 @@ function initializeAirports(airportName, createAirports) {
 
 // this function creates airport objects and adds them to an array
 function createAirports(data) {
-  console.log(data); // remove
+  console.log(data);
   let airport = {
     abbrev : data.IATA,
     fullName : data.name,
