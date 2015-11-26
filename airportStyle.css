@@ -1,0 +1,17 @@
+html {
+  font-family: Helvetica;
+}
+
+.airportContainers {
+  margin-bottom: 30px;
+  outline-style:solid;
+  outline-width:2px;
+  outline-color:black;
+  width: 230px;
+  height: 230px;
+}
+
+h3 {
+  font-size: 35pt;
+  text-align: right;
+}
