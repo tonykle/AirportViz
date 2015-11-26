@@ -21,13 +21,13 @@ function initializeAirports(airportName, createAirports) {
 
 // this function creates airport objects and adds them to an array
 function createAirports(data) {
+  console.log(data); // remove
   let airport = {
     abbrev : data.IATA,
     fullName : data.name,
     city : data.city,
     status: data.status.reason,
     temp : data.weather.temp,
-    weather: data.weather.weather,
     wind: data.weather.wind
   }
   let airportCurr = document.createElement("div");
@@ -39,7 +39,7 @@ function createAirports(data) {
   Object.getOwnPropertyNames(airport).forEach(val => {
     let airPortProp;
     if (val == "abbrev") {
-      airPortProp = document.createElement("h3");  
+      airPortProp = document.createElement("h3");
     } else {
       airPortProp = document.createElement("div");
     }
