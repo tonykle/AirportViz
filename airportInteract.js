@@ -1,7 +1,8 @@
 'use strict';
 
+var count = 0; // count to create unique IDs and to properly format boxes
 $(document).ready(function() {
-  const AIRPORT_LIST = ['SFO', 'LAX', 'PHX', 'JFK', 'ATL', 'MIA', 'AUS', 'BOS', 'CLE', 'ORD', 'PDX']; // used for URL in ajax
+  const AIRPORT_LIST = ['SFO', 'LAX', 'JFK', 'ATL', 'MIA', 'AUS', 'BOS', 'ORD', 'PDX']; // used for URL in ajax
   AIRPORT_LIST.forEach(airportName => {
     let urlCurr = 'http://services.faa.gov/airport/status/' + airportName + '?format=application/json';
     initializeAirports(urlCurr, createAirports);
@@ -19,9 +20,8 @@ function initializeAirports(airportName, createAirports) {
   })
 }
 
-// this function creates airport objects and adds them to an array
+// this function creates and uses airport objects to create boxes with live airport information
 function createAirports(data) {
-  console.log(data);
   let airport = {
     abbrev : data.IATA,
     fullName : data.name,
@@ -30,29 +30,38 @@ function createAirports(data) {
     temp : data.weather.temp,
     updated: "Last Updated: " + data.weather.meta.updated
   }
+
   let airportCurr = document.createElement("div");
   $(airportCurr)
-    .attr("id", airport.abbrev + "1")
+    .attr("id", airport.abbrev + count + "")
     .attr("class", "airportContainers");
+  if (count % 3 == 0) {
+    $(airportCurr).css("clear", "both");
+  }
+  $(airportCurr).css("float", "left");
+
   $("#area").append(airportCurr);
 
   Object.getOwnPropertyNames(airport).forEach(val => {
     let airPortProp;
+    // title of each box
     if (val == "abbrev") {
       airPortProp = document.createElement("h3");
     } else {
       airPortProp = document.createElement("div");
     }
 
-    if (airport.status != "No known delays for this airport.") {
-      $("#" + airport.abbrev + "1").css("background-color", "white");
-    } else {
-      $("#" + airport.abbrev + "1").css("background-color", "#00CD00");
+    // airport box outline becomes thicker and red if there is a delay
+    if (airport.status != "No known delays for this airport") {
+      $("#" + airport.abbrev + count)
+        .css("outline-color", "#ef3d47")
+        .css("outline-width", "9px");
     }
-
+    
     $(airPortProp)
       .attr("id", val)
       .html(airport[val]);
-    $("#" + airport.abbrev + "1").append(airPortProp);
+    $("#" + airport.abbrev + count).append(airPortProp);
   });
+  count++;
 }

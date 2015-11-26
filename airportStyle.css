@@ -1,20 +1,35 @@
 html {
   font-family: Helvetica;
+  background-color: #131313;
 }
 
 .airportContainers {
-  margin-bottom: 30px;
   outline-style:solid;
-  outline-width: 6px;
-  outline-color:black;
+  outline-width: 6.5px;
+  outline-color:#3fb0ac;
   width: 230px;
   height: 230px;
   padding-left: 10px;
   padding-right: 10px;
+  margin: auto 35px 35px auto;
+  background-color: #173e43;
 }
 
 h3 {
-  font-size: 44pt;
+  font-size: 46pt;
   text-align: right;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  color: #fae596;
+}
+
+div div {
+  font-size: 10.5pt;
+  color: #dddfd4;
+}
+
+#area {
+  margin: 0 auto;
+  width: 900px;
+  margin-top: 5%;
 }
