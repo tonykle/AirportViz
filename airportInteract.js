@@ -26,9 +26,9 @@ function createAirports(data) {
     abbrev : data.IATA,
     fullName : data.name,
     city : data.city,
-    status: data.status.reason,
+    status: data.status.reason.replace(".", ""),
     temp : data.weather.temp,
-    wind: data.weather.wind
+    updated: "Last Updated: " + data.weather.meta.updated
   }
   let airportCurr = document.createElement("div");
   $(airportCurr)
@@ -44,10 +44,15 @@ function createAirports(data) {
       airPortProp = document.createElement("div");
     }
 
+    if (airport.status != "No known delays for this airport.") {
+      $("#" + airport.abbrev + "1").css("background-color", "white");
+    } else {
+      $("#" + airport.abbrev + "1").css("background-color", "#00CD00");
+    }
+
     $(airPortProp)
       .attr("id", val)
       .html(airport[val]);
     $("#" + airport.abbrev + "1").append(airPortProp);
-
   });
 }
