@@ -2,7 +2,9 @@ var AirportContainer = React.createClass({
   getInitialState: function() {
     return {
       airportData: [],
-      count: 0
+      toProcess: [],
+      count: 0,
+      filter: '' // current value of the form
     };
   },
 
@@ -20,7 +22,7 @@ var AirportContainer = React.createClass({
         dataType: 'jsonp',
         success: fillAirportData
       });
-    })
+    });
   },
 
   /**
@@ -47,12 +49,46 @@ var AirportContainer = React.createClass({
     this.loadAirportData(this.fillAirportData);
   },
 
+  /**
+  * Updates the state of the filter when the text in the form changes
+  *
+  * @param {Event} event
+  */
+  handleFilterChange: function(event) {
+    let updatedToProcess = [];
+    for (let i = 0; i < this.state.airportData.length; i++) {
+      // seeing if the user input is a substring of the string of any (full) airport name
+      let airportFullName = this.state.airportData[i].fullName.toUpperCase();
+      let filterText = this.state.filter.toUpperCase();
+      if (airportFullName.indexOf(filterText) > -1) {
+        updatedToProcess.push(this.state.airportData[i]);
+      }
+    }
+    this.setState({
+      filter : event.target.value,
+      toProcess : updatedToProcess
+    });
+  },
+
   render: function() {
     // to have a new line after every 3 airports
     let toClear = (this.state.count % 3 === 1) ? {clear: 'both',  float: 'left'} : {float: 'left'};
+    let displayList = (this.state.filter === '') ? this.state.airportData : this.state.toProcess;
     return(
       <div>
-        {this.state.airportData.map(airportNode => (
+        <form>
+          <input
+            type="text"
+            name="filter"
+            value={this.state.filter}
+            onChange={this.handleFilterChange}
+            placeholder="Enter an airport name"
+          />
+          <br />
+          <br />
+          <br />
+        </form>
+        {displayList.map(airportNode => (
             <div
               className ={'airportContainers'}
               key={airportNode.abbrev}
@@ -73,7 +109,7 @@ var AirportContainer = React.createClass({
 
 ReactDOM.render(
   <AirportContainer
-    airportList = {['SFO', 'LAX', 'JFK', 'ATL', 'MIA', 'AUS', 'BOS', 'ORD', 'PDX']}
+    airportList = {['SFO', 'LAX', 'JFK', 'ATL', 'MIA', 'AUS', 'BOS', 'ORD', 'PDX', 'PHX', 'CLE', 'SJC']}
     apiURL = 'http://services.faa.gov/airport/status/AIRPORTNAME?format=application/json'
    />,
   document.getElementById('content')
