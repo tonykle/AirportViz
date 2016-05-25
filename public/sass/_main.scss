@@ -1,0 +1,56 @@
+/* colors */
+$light-sea-green: #3fb0ac;
+$nordic: #173e43;
+$seal-brown: #131313;
+$visvis: #fae596;
+$feta: #dddfd4;
+
+$font: Helvetica;
+$box-padding: 10px;
+$base-dimension: 1000px;
+
+html {
+  font-family: $font;
+  background-color: $seal-brown;
+}
+
+.airportContainers {
+  outline: {
+    style: solid;
+    width: 6.5px;
+    color: $light-sea-green;
+  }
+  padding: {
+    left: $box-padding;
+    right : $box-padding;
+  }
+  width: $base-dimension * .23;
+  height: $base-dimension * .23;
+  margin: auto 35px 35px auto;
+  background-color: $nordic;
+}
+
+h3 {
+  margin: {
+    top: 10px;
+    bottom: 40px;
+  }
+  color: $visvis;
+  font-size: 46pt;
+  text-align: right;
+}
+
+div div {
+  color: $feta;
+  font-size: 10.5pt;
+}
+
+#content {
+  width: $base-dimension * .90;
+  margin: 5% auto;
+}
+
+form {
+  width: $base-dimension * .20;
+  margin: auto;
+}
