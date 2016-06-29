@@ -1,9 +1,9 @@
 /* colors */
-$light-sea-green: #3fb0ac;
-$nordic: #173e43;
-$seal-brown: #131313;
-$visvis: #fae596;
-$feta: #dddfd4;
+$light-sea-green: #43919f;
+$nordic: #1a3a3f;
+$seal-brown: #30171e;
+$visvis: #f03d63;
+$feta: white;
 
 $font: Helvetica;
 $box-padding: 10px;
@@ -11,7 +11,7 @@ $base-dimension: 1000px;
 
 html {
   font-family: $font;
-  background-color: $seal-brown;
+  background-color: #131313;
 }
 
 .airportContainers {
