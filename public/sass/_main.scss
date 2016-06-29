@@ -1,9 +1,8 @@
 /* colors */
-$light-sea-green: #43919f;
-$nordic: #1a3a3f;
+$cyan: #43919f;
+$dark-cyan: #1a3a3f;
 $seal-brown: #30171e;
-$visvis: #f03d63;
-$feta: white;
+$radical-red: #f03d63;
 
 $font: Helvetica;
 $box-padding: 10px;
@@ -18,7 +17,7 @@ html {
   outline: {
     style: solid;
     width: 6.5px;
-    color: $light-sea-green;
+    color: $cyan;
   }
   padding: {
     left: $box-padding;
@@ -27,7 +26,7 @@ html {
   width: $base-dimension * .23;
   height: $base-dimension * .23;
   margin: auto 35px 35px auto;
-  background-color: $nordic;
+  background-color: $dark-cyan;
 }
 
 h3 {
@@ -35,13 +34,13 @@ h3 {
     top: 10px;
     bottom: 40px;
   }
-  color: $visvis;
+  color: $radical-red;
   font-size: 46pt;
   text-align: right;
 }
 
 div div {
-  color: $feta;
+  color: white;
   font-size: 10.5pt;
 }
 
