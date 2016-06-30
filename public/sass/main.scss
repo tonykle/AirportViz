@@ -1,3 +1,10 @@
+@import 'structure';
+
+/*
+Besides the content imported from the 'structure' Sass file, this file is exclusively used for
+styling of the page, but is named 'base' because of the combined result
+*/
+
 /* colors */
 $cyan: #43919f;
 $dark-cyan: #1a3a3f;
