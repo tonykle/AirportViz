@@ -1,7 +1,5 @@
 .DS_Store
 node_modules
 .sass-cache
-css
-output.css.map
 build
 npm-debug.log

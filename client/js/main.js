@@ -78,7 +78,7 @@ let AirportContainer = React.createClass({
 
   render: function() {
     // to have a new line after every 3 airports
-    let toClear = (this.state.count % 3 === 1) ? {clear: 'both',  float: 'left'} : {float: 'left'};
+    let toClear = (this.state.count % 3 === 1) ? { clear: 'both',  float: 'left' } : { float: 'left' };
     let displayList = (this.state.filter === '') ? this.state.airportData : this.state.toProcess;
     return (
       <div>

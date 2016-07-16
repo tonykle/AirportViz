@@ -6,9 +6,9 @@ var path = require('path');
 module.exports = {
   devtool: 'eval',
   context: __dirname,
-  entry: [('./client/js/main.js')],
+  entry: [path.resolve(__dirname, 'client', 'js', 'main.js')],
   output: {
-    path: './build',
+    path: path.join(__dirname, 'build'),
     publicPath: '/build/',
     filename: 'bundle.js'
   },
@@ -27,13 +27,13 @@ module.exports = {
     }]
   },
   sassLoader: {
-    includePaths: ['./node_modules']
+    includePaths: path.join(__dirname, 'node_modules')
   },
   resolve: {
     extensions: ['', '.js', '.sass', '.css'],
     alias: {
-      js: './client/js',
-      sass: './client/sass'
+      js: path.resolve(__dirname, 'client', 'js'),
+      sass: path.resolve(__dirname, 'client', 'sass')
     }
   },
   plugins: [
