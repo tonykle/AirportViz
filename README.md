@@ -12,4 +12,4 @@ This is a simple airport information visualizer application. It uses the Federal
 2. Clone this repository by entering the following command ```git clone https://github.com/tonykle/AirportViz.git``` into terminal.
 3. Run ```npm install``` to install dependencies.
 4. Run ```npm start``` in the terminal from the root directory in order to run application.
-5. Navigate to ```http://localhost:8080/```
+5. Navigate to the URL that is displayed in the terminal. It will look similar to ```localhost:8000```.
