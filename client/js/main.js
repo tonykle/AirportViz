@@ -43,7 +43,7 @@ let AirportContainer = React.createClass({
       city: data.city,
       status: data.status.reason.replace('.', ''),
       temp: data.weather.temp,
-      updated: 'Last Updated: ' + data.weather.meta.updated
+      updated: `Last Updated: ${data.weather.meta.updated}`
     };
     this.setState({
       airportData: this.state.airportData.concat([airportCurr]),
@@ -86,26 +86,26 @@ let AirportContainer = React.createClass({
           <input
             type="text"
             name="filter"
-            value={this.state.filter}
-            onChange={this.handleFilterChange}
+            value={ this.state.filter }
+            onChange={ this.handleFilterChange }
             placeholder="Enter an airport name"
           />
           <br />
           <br />
           <br />
         </form>
-        {displayList.map(airportNode => (
+        { displayList.map(airportNode => (
             <div
-              className ={'airportContainers'}
-              key={airportNode.abbrev}
+              className ={ 'airportContainers' }
+              key={ airportNode.abbrev }
               style={toClear}
               >
-              <h3 id="abbrev">{airportNode.abbrev}</h3>
-              <div id="fullName">{airportNode.fullName}</div>
-              <div id="city">{airportNode.city}</div>
-              <div id="status">{airportNode.status}</div>
-              <div id="temp">{airportNode.temp}</div>
-              <div id="updated">{airportNode.updated}</div>
+              <h3 id="abbrev"> { airportNode.abbrev } </h3>
+              <div id="fullName"> { airportNode.fullName } </div>
+              <div id="city"> { airportNode.city } </div>
+              <div id="status"> { airportNode.status } </div>
+              <div id="temp"> { airportNode.temp } </div>
+              <div id="updated"> { airportNode.updated } </div>
             </div>
         ))}
       </div>
