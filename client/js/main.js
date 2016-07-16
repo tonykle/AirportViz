@@ -1,4 +1,10 @@
-var AirportContainer = React.createClass({
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import { airportList, apiURL } from './constants';
+import '../sass/main.scss';
+
+let AirportContainer = React.createClass({
   getInitialState: function() {
     return {
       airportData: [],
@@ -74,7 +80,7 @@ var AirportContainer = React.createClass({
     // to have a new line after every 3 airports
     let toClear = (this.state.count % 3 === 1) ? {clear: 'both',  float: 'left'} : {float: 'left'};
     let displayList = (this.state.filter === '') ? this.state.airportData : this.state.toProcess;
-    return(
+    return (
       <div>
         <form>
           <input
@@ -109,8 +115,8 @@ var AirportContainer = React.createClass({
 
 ReactDOM.render(
   <AirportContainer
-    airportList = {['SFO', 'LAX', 'JFK', 'ATL', 'MIA', 'AUS', 'BOS', 'ORD', 'PDX', 'PHX', 'CLE', 'SJC']}
-    apiURL = 'http://services.faa.gov/airport/status/AIRPORTNAME?format=application/json'
+    airportList = { airportList }
+    apiURL = { apiURL }
    />,
   document.getElementById('content')
 );

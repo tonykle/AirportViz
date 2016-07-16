@@ -1,14 +1,17 @@
-var fs = require('fs');
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+'use strict';
 
-app.set('port', (process.env.PORT || 3000));
-app.use('/', express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+let path = require('path');
+let express = require('express');
+let app = express();
 
-app.listen(app.get('port'), function() {
-  console.log('Server started: http://localhost:' + app.get('port') + '/');
+let port = process.env.PORT || 8000;
+let indexPath = path.resolve(__dirname, 'client', 'index.html');
+
+app.use(express.static('build'));
+app.get('/', function(req, res) {
+    res.sendFile(indexPath);
+});
+
+app.listen(port, function() {
+    console.log('App is live at the URL: ', `localhost:${port}`);
 });
